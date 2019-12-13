@@ -1,0 +1,4 @@
+package: github.com/PrzemyslawMorski/cloud-native-golang
+import:
+- package: github.com/olekukonko/tablewriter
+  version: ^0.0.4
