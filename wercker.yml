@@ -60,17 +60,16 @@ deploy:
     - internal/docker-push:
         username: $DOCKER_USERNAME
         password: $DOCKER_PASSWORD
-        cmd: /pipeline/source/hello
         port: "8080"
         tag: latest
         repository: pmorski/cloud-native-golang
         registry: https://registry.hub.docker.com
 
-    - cng/cf-deploy:
-        api: $API
-        user: $USER
-        password: $PASSWORD
-        org: $ORG
-        space: $SPACE
-        appname: cloud-native-golang
-        docker_image: pmorski/cloud-native-golang
+#    - cng/cf-deploy:
+#        api: $API
+#        user: $USER
+#        password: $PASSWORD
+#        org: $ORG
+#        space: $SPACE
+#        appname: cloud-native-golang
+#        docker_image: pmorski/cloud-native-golang
