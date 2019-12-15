@@ -1,28 +1,16 @@
 package main
 
 import (
-	"fmt"
-	"net/http"
+	"github.com/PrzemyslawMorski/cloud-native-golang/service"
 	"os"
-
-	"github.com/codegangsta/negroni"
 )
 
 func main() {
 	port := os.Getenv("PORT")
 	if len(port) == 0 {
-		port = "8080"
+		port = "3000"
 	}
 
-	mux := http.NewServeMux()
-	mux.HandleFunc("/", hello)
-
-	n := negroni.Classic()
-	n.UseHandler(mux)
-	hostString := fmt.Sprintf(":%s", port)
-	n.Run(hostString)
-}
-
-func hello(res http.ResponseWriter, _ *http.Request) {
-	_, _ = fmt.Fprintln(res, "Hello from Go!")
+	server := service.NewServer()
+	server.Run(":" + port)
 }
